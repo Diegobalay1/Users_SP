@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        userAdapter = UserAdapter(mutableListOf())
+        userAdapter = UserAdapter(getUsers())
         linearLayoutManager = LinearLayoutManager(this)
 
         binding.recyclerView.apply {
@@ -27,4 +27,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun getUsers(): MutableList<User> {
+        val users = mutableListOf<User>()
+
+        val alain = User(1, "Alain", "Nicolás", "")
+        val samanta = User(2, "Samanta", "Meza", "")
+
+        users.add(alain)
+        users.add(samanta)
+
+        return users
+    }
+
 }
+
+// Generar o crear esos usuarios que se van a visualizar en el listado

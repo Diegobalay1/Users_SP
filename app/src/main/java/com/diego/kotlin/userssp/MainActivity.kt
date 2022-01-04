@@ -30,15 +30,33 @@ class MainActivity : AppCompatActivity() {
     private fun getUsers(): MutableList<User> {
         val users = mutableListOf<User>()
 
-        val alain = User(1, "Alain", "Nicolás", "")
-        val samanta = User(2, "Samanta", "Meza", "")
+        val alain = User(1, "Alain", "Nicolás", "https://frogames.es/wp-content/uploads/2020/09/alain-1.jpg")
+        val samanta = User(2, "Samanta", "Meza", "https://upload.wikimedia.org/wikipedia/commons/b/b2/Samanta_villar.jpg")
+        val javier = User(3, "Javier", "Gómez", "https://amautas.com/wp-content/uploads/2021/02/javier_santaolalla_amautas.jpg")
+        val emma = User(4, "Emma", "Cruz", "https://img.europapress.es/fotoweb/fotonoticia_20210518175833_1200.jpg")
 
         users.add(alain)
         users.add(samanta)
-
+        users.add(javier)
+        users.add(emma)
+        users.add(alain)
+        users.add(samanta)
+        users.add(javier)
+        users.add(emma)
+        users.add(alain)
+        users.add(samanta)
+        users.add(javier)
+        users.add(emma)
+        users.add(alain)
+        users.add(samanta)
+        users.add(javier)
+        users.add(emma)
+        users.add(alain)
+        users.add(samanta)
+        users.add(javier)
+        users.add(emma)
         return users
     }
 
 }
 
-// Generar o crear esos usuarios que se van a visualizar en el listado

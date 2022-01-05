@@ -9,7 +9,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.diego.kotlin.userssp.databinding.ItemUserBinding
 
-class UserAdapter(private val users: List<User>) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter(private val users: List<User>, private val listener: OnClickListener) :
+        RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+
     private lateinit var context: Context //con lateinit le estamos diciendo que se inicializará después
 
     /**
@@ -31,6 +33,7 @@ class UserAdapter(private val users: List<User>) : RecyclerView.Adapter<UserAdap
 
         // alimentamos cada propiedad respecto al valor de cada usuario
         with(holder){
+            setListener(user, position+1)
             binding.tvOrder.text = (position+1).toString()//user.id.toString()
             binding.tvName.text = user.getFullName()
             Glide.with(context)
@@ -49,5 +52,9 @@ class UserAdapter(private val users: List<User>) : RecyclerView.Adapter<UserAdap
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val binding = ItemUserBinding.bind(view)
+
+        fun setListener(user: User, position: Int){
+            binding.root.setOnClickListener { listener.onClick(user, position) }
+        }
     }
 }

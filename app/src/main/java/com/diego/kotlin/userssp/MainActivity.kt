@@ -1,7 +1,9 @@
 package com.diego.kotlin.userssp
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +24,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val preferences = getPreferences(Context.MODE_PRIVATE)
+        val isFirstTime = preferences.getBoolean(getString(R.string.sp_first_time), false)
+        Log.i("SP", "onCreate: ${getString(R.string.sp_first_time)} = $isFirstTime")
 
         userAdapter = UserAdapter(getUsers(), this)
         linearLayoutManager = LinearLayoutManager(this)
